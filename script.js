@@ -13,7 +13,8 @@ const app = new Vue({
   el: "#app",
 
   data: {
-    email:""
+    emails:[],
+    totalEmails: 10
   },
 
   mounted() {
@@ -22,10 +23,10 @@ const app = new Vue({
   
   methods: {
     getEmails() {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < this.totalEmails; i++) {
         axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
         .then(res => {
-          this.email += " " + res.data.response;
+          this.emails.push(res.data.response);
           console.log(this.email);
         })
       }

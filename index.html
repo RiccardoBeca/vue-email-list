@@ -12,9 +12,8 @@
   
 
   <div id="app">
-    <ul>
-      <li
-      >{{email}}</li>
+    <ul v-if="emails.length === totalEmails">
+      <li v-for="email in emails">{{email}}</li>
     </ul>
 
   </div>
